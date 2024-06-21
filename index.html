@@ -4,63 +4,190 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Say Goodbye to Orphan Words!</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
-        <script>
-            tailwind.config = {
-              theme: {
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Say Goodbye to Orphan Words!</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
                 extend: {
-                  colors: {
-                    clifford: '#da373d',
-                  }
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                    backgroundImage: {
+                        'page-background': "url('/assets/bg.jpg')"
+                    }
                 }
-              }
             }
-          </script>
-    </head>
-    <body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-50">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div class="container mx-auto h-dvh grid content-center justify-items-center">
-            <div class="w-3/5 p-8">
-              <span class="relative inline-flex">
-                <h1 id="myHeadline" class="font-serif text-center text-2xl sm:text-7xl hover:text-balance">
-                    Headless Body in Toppless <span class="">Bar</span>
+        }
+    </script>
+    <style>
+        @keyframes glitch {
+            0% {
+                clip: rect(42px, 9999px, 44px, 0);
+                transform: skew(0.5deg);
+            }
+            5% {
+                clip: rect(12px, 9999px, 92px, 0);
+                transform: skew(0.5deg);
+            }
+            10% {
+                clip: rect(32px, 9999px, 68px, 0);
+                transform: skew(0.5deg);
+            }
+            15% {
+                clip: rect(50px, 9999px, 36px, 0);
+                transform: skew(0.5deg);
+            }
+            20% {
+                clip: rect(30px, 9999px, 96px, 0);
+                transform: skew(0.5deg);
+            }
+            25% {
+                clip: rect(70px, 9999px, 28px, 0);
+                transform: skew(0.5deg);
+            }
+            30% {
+                clip: rect(40px, 9999px, 76px, 0);
+                transform: skew(0.5deg);
+            }
+            35% {
+                clip: rect(60px, 9999px, 84px, 0);
+                transform: skew(0.5deg);
+            }
+            40% {
+                clip: rect(20px, 9999px, 34px, 0);
+                transform: skew(0.5deg);
+            }
+            45% {
+                clip: rect(10px, 9999px, 54px, 0);
+                transform: skew(0.5deg);
+            }
+            50% {
+                clip: rect(50px, 9999px, 74px, 0);
+                transform: skew(0.5deg);
+            }
+            55% {
+                clip: rect(30px, 9999px, 64px, 0);
+                transform: skew(0.5deg);
+            }
+            60% {
+                clip: rect(40px, 9999px, 24px, 0);
+                transform: skew(0.5deg);
+            }
+            65% {
+                clip: rect(60px, 9999px, 44px, 0);
+                transform: skew(0.5deg);
+            }
+            70% {
+                clip: rect(20px, 9999px, 14px, 0);
+                transform: skew(0.5deg);
+            }
+            75% {
+                clip: rect(10px, 9999px, 54px, 0);
+                transform: skew(0.5deg);
+            }
+            80% {
+                clip: rect(50px, 9999px, 74px, 0);
+                transform: skew(0.5deg);
+            }
+            85% {
+                clip: rect(30px, 9999px, 64px, 0);
+                transform: skew(0.5deg);
+            }
+            90% {
+                clip: rect(40px, 9999px, 24px, 0);
+                transform: skew(0.5deg);
+            }
+            95% {
+                clip: rect(60px, 9999px, 44px, 0);
+                transform: skew(0.5deg);
+            }
+            100% {
+                clip: rect(20px, 9999px, 14px, 0);
+                transform: skew(0.5deg);
+            }
+        }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
+            color: white;
+            font-size: 6em;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+            color: #fff;
+            animation: glitch 1s infinite;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+            animation-delay: -0.2s;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(100px, 450px, 100px, 0);
+            animation-delay: -0.4s;
+        }
+    </style>
+</head>
+<body class="bg-page-background bg-cover bg-left-bottom	text-slate-800 dark:bg-slate-900 dark:text-slate-50">
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container mx-auto h-dvh grid content-center justify-items-center">
+        <div class="w-3/5 p-8">
+            <span class="relative inline-flex ">
+                <h1 id="myHeadline" class="font-serif text-left text-2xl sm:text-8xl hover:text-balance glitch" data-text="Headless Body in Topless Bar">
+                    Headless Body in Topless <span class="">Bar</span>
                 </h1>
-                <span class="absolute flex h-3 w-3 top-0 right-0 ">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                <span class="absolute flex h-3 w-3 top-0 right-0">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
                 </span>
-              </span>
-                <button id="toggleBtn" onclick="myFunction()" class="flex fixed right-8 bottom-8 w-44 justify-center h-44 text-white items-center bg-violet-500 border-0 py-2 px-6 md:px-8 focus:outline-none hover:bg-indigo-600 text-sm uppercase">
-                  Balance It
-                </button>
-            </div>
+            </span>
+            <button id="toggleBtn" onclick="myFunction()" class="flex fixed right-8 bottom-8 w-44 justify-center h-44 text-white items-center bg-violet-500 border-0 py-2 px-6 md:px-8 focus:outline-none hover:bg-indigo-600 text-sm uppercase">
+                Balance It
+            </button>
         </div>
-        
-        <script>
-          function myFunction() {
+    </div>
+
+    <script>
+        function myFunction() {
             const headline = document.getElementById('myHeadline');
             const button = document.getElementById('toggleBtn');
+            const overlay = document.getElementById('watermarkOverlay');
 
-            if (headline.classList.contains('text-balance')){
-              headline.classList.remove('text-balance');
-              button.textContent = 'Balance It';
-            }
-              else {
+            if (headline.classList.contains('text-balance')) {
+                headline.classList.remove('text-balance');
+                button.textContent = 'Balance It';
+                overlay.style.opacity = '0';
+            } else {
                 headline.classList.add('text-balance');
                 button.textContent = 'Unbalance It';
-
-              }
-          }
-        </script>
-    </body>
+                overlay.style.opacity = '1';
+            }
+        }
+    </script>
+</body>
 </html>
